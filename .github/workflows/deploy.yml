@@ -12,7 +12,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
       - run: npm install -g pnpm@8.8.0
       - run: pnpm --version
       - run: pnpm install
