@@ -12,10 +12,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install -g pnpm@8.8.0
-      - run: pnpm --version
-      - run: pnpm install --filter prompt-injection
-      - run: pnpm build --filter prompt-injection
+      - run: npm install
+        working-directory: prompt-injection
+      - run: npm run build
+        working-directory: prompt-injection
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
