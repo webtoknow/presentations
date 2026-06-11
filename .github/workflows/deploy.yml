@@ -12,9 +12,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
-      - run: corepack enable
-      - run: corepack prepare pnpm@8.8.0 --activate
+          cache: 'npm'
+      - run: npm install -g pnpm@8.8.0
+      - run: pnpm --version
       - run: pnpm install
         working-directory: prompt-injection
       - run: pnpm build
