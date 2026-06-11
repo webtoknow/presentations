@@ -14,10 +14,8 @@ jobs:
           node-version: '20'
       - run: npm install -g pnpm@8.8.0
       - run: pnpm --version
-      - run: pnpm install
-        working-directory: prompt-injection
-      - run: pnpm build
-        working-directory: prompt-injection
+      - run: pnpm install --filter prompt-injection
+      - run: pnpm build --filter prompt-injection
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
