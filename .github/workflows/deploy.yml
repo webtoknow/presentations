@@ -9,17 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          package_json_file: prompt-injection/package.json
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
+      - run: corepack enable
+      - run: corepack prepare pnpm@8.8.0 --activate
       - run: pnpm install
         working-directory: prompt-injection
-      - run: npm run build
+      - run: pnpm build
         working-directory: prompt-injection
       - uses: peaceiris/actions-gh-pages@v3
         with:
