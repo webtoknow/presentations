@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
+        with:
+          package_json_file: prompt-injection/package.json
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
